@@ -18,19 +18,23 @@ const Vans = () => {
   }, []);
 
   const vanElement = vans.map((van) => (
-    <Link to={`/vans/${van.id}`}>
-      <div key={van.id} className="van-tile">
-        <img src={van.imageUrl} alt={van.name} />
+    <div key={van.id} className="van-tile">
+      <Link
+        to={`/vans/${van.id}`}
+        aria-label={`View details for ${van.name}, 
+                             priced at $${van.price} per day`}
+      >
+        <img src={van.imageUrl} alt={`Image of ${van.name}`} />
         <div className="van-info">
-          <h3>{van.name}</h3>
+          <p>{van.name}</p>
           <p>
             ${van.price}
             <span>/day</span>
           </p>
         </div>
         <i className={`van-type ${van.type} selected`}>{van.type}</i>
-      </div>
-    </Link>
+      </Link>
+    </div>
   ));
 
   return (
