@@ -1,7 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const VanDetails = () => {
-  return <div>VanDetails</div>;
+  const parm = useParams();
+  console.log(parm);
+
+  return <p>hello world</p>;
 };
 
 export default VanDetails;
